@@ -27,7 +27,6 @@
             width: 100%;
             padding: 50px;
         }
-
         /* Animationen für jedes Element */
         @keyframes fadeInUp {
             from {
@@ -65,7 +64,7 @@
             }
         }
 
-        /* Styling für die Einleitung */
+        /* Animationen für die Elemente */
         .intro .hello {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
@@ -119,10 +118,45 @@
             gap: 20px;
             justify-items: center;
             margin-top: 50px;
-            transition: opacity 1s ease-in-out;
         }
 
-        /* Styling für die Projekte */
+        /* Styling für die Elemente */
+        h1 {
+            font-size: 64px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        h1 span {
+            color: #a855f7; /* Magenta für FullRisk */
+        }
+        p {
+            font-size: 22px;
+            color: #000; /* Text in schwarz */
+        }
+        .github-link {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            padding: 12px 25px;
+            margin-top: 25px;
+            border-radius: 5px;
+            color: #a855f7;
+            font-size: 20px;
+            text-decoration: none;
+            border: 2px solid #a855f7;
+            transition: all 0.3s;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .github-link::before {
+            content: "➜";
+            margin-right: 12px;
+        }
+        .github-link:hover {
+            background: #a855f7;
+            color: #fff;
+        }
         .project {
             background: #1a1a1a;
             padding: 25px;
@@ -162,24 +196,6 @@
             margin-right: 6px;
         }
 
-        /* Styling für den Scroll-Indikator */
-        .scroll-indicator {
-            font-size: 24px;
-            font-weight: bold;
-            color: #000;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 2.5s;
-        }
-
-        .scroll-indicator span {
-            font-size: 36px;
-            display: inline-block;
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 3s;
-        }
-
         /* Footer Styling */
         .footer {
             opacity: 0;
@@ -207,8 +223,9 @@
             <span class="name">FullRisk</span>.
         </h1>
         <div class="content">
-            <p class="text">Ein 15 Jahre alter hobby-Programmierer der es liebt neue Sachen zu lernen.</p>
-            <a href="https://github.com/FullRisk" target="_blank" class="github-link">Check me out on GitHub!</a>
+            <p class="text">A 15 year old hobby programmer who loves learning new things
+and is interested in websites..</p>
+            <a href="https://github.com/FullRisk" target="_blank" class="github-link">My GitHub!</a>
         </div>
 
         <!-- Titel für Projekte -->
@@ -222,32 +239,15 @@
                 <div class="project-desc">Eine Minecraft Mod die eine neue Art Portale hinzufügt.</div>
             </a>
             <a href="https://example.com/noriskclient" class="project">
-                <div class="project-title">NoRiskClient</div>
-                <div class="project-desc">Ein Minecraft Client der auf Customization beruht.</div>    
+                <div class="project-title">ArmourGuard</div>
+                <div class="project-desc">Bewahrt den Spieler davor das seine Rüstung kaputt geht.</div>    
             </a>
-        </div>
-
-        <!-- Scroll Indikator am Ende der Seite -->
-        <div class="scroll-indicator">
-            Scrolle <span>↓</span>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>&copy; 2025 Tim Lohrer. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
+            <p>&copy; 2025 FullRisk. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
         </div>
     </div>
-
-    <script>
-        // Funktion, um Projekte smooth erscheinen zu lassen, wenn gescrollt wird
-        window.addEventListener('scroll', function () {
-            let projects = document.querySelector('.projects');
-            let scrollPosition = window.scrollY;
-
-            if (scrollPosition > 150) {
-                projects.style.opacity = 1;
-            }
-        });
-    </script>
 </body>
 </html>
