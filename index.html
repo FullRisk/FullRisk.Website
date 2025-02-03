@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FullRisk | GitHub Profil</title>
+    <title>Tim Lohrer | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,11 +12,10 @@
             background-color: #0d0d0d;
             color: #fff;
             padding: 50px;
-            overflow-x: hidden;
-            margin-left: 20px; /* Verschiebt alles nach links */
+            margin: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             opacity: 0;
             transform: translateY(-20px);
@@ -33,47 +32,54 @@
             }
         }
         h1 {
-            font-size: 42px;
-            font-weight: 600;
+            font-size: 48px;
+            font-weight: bold;
         }
         h1 span {
             color: #9b59b6;
         }
         p {
-            font-size: 18px;
+            font-size: 20px;
             color: #bbb;
         }
-        a {
+        .github-link {
+            display: inline-block;
+            background: #1a1a1a;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
             color: #9b59b6;
+            font-size: 18px;
             text-decoration: none;
+            border: 2px solid #9b59b6;
+            transition: all 0.3s;
         }
-        a:hover {
-            text-decoration: underline;
+        .github-link:hover {
+            background: #9b59b6;
+            color: #fff;
         }
         .projects {
-            margin-top: 30px;
+            margin-top: 40px;
         }
         .project {
             background: #1a1a1a;
-            padding: 15px;
-            margin: 10px auto;
+            padding: 20px;
+            margin: 15px auto;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
-            max-width: 500px;
-            position: relative;
-            overflow: hidden;
+            max-width: 600px;
             transition: transform 0.3s ease-in-out;
         }
         .project:hover {
             transform: scale(1.05);
         }
         .project-title {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
             color: #fff;
         }
         .project-desc {
-            font-size: 16px;
+            font-size: 18px;
             color: #bbb;
         }
         .tags {
@@ -83,7 +89,7 @@
             display: inline-block;
             background: #9b59b6;
             color: #fff;
-            padding: 4px 8px;
+            padding: 5px 10px;
             border-radius: 5px;
             font-size: 14px;
             margin-right: 5px;
@@ -92,16 +98,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hello 👋<br>I am <span>FullRisk</span>.</h1>
-        <p>A passionate developer interested in various technologies and always looking to improve.</p>
-        <p>Check me out on <a href="https://github.com/FullRisk" target="_blank">GitHub</a>!</p>
+        <h1>Hello 👋<br> I am <span>Tim Lohrer</span>.</h1>
+        <p>Ein 18-jähriger Full-Stack-Entwickler aus Deutschland mit über 5 Jahren Erfahrung.</p>
+        <a href="https://github.com/FullRisk" target="_blank" class="github-link">🔗 Check me out on GitHub!</a>
         
         <div class="projects">
             <h2>Projects</h2>
-            <!-- Projekt 1 -->
             <div class="project">
                 <div class="project-title">GalaxyBot</div>
-                <div class="project-desc">A Discord bot with 1.7M+ users for support systems, moderation & team management.</div>
+                <div class="project-desc">Ein Discord-Bot mit 1.7M+ Nutzern für Support, Moderation & Team-Management.</div>
                 <div class="tags">
                     <span class="tag">JavaScript</span>
                     <span class="tag">TypeScript</span>
@@ -109,10 +114,9 @@
                     <span class="tag">Python</span>
                 </div>
             </div>
-            <!-- Projekt 2 -->
             <div class="project">
                 <div class="project-title">NoRiskClient</div>
-                <div class="project-desc">A custom Minecraft client with extensive modding & multiplayer features.</div>
+                <div class="project-desc">Ein Minecraft-Client mit erweiterten Modding- & Multiplayer-Funktionen.</div>
                 <div class="tags">
                     <span class="tag">Java</span>
                     <span class="tag">Kotlin</span>
@@ -121,29 +125,6 @@
                     <span class="tag">Dart</span>
                     <span class="tag">Svelte</span>
                     <span class="tag">TypeScript</span>
-                </div>
-            </div>
-            <!-- Projekt 3 -->
-            <div class="project">
-                <div class="project-title">SkyChat</div>
-                <div class="project-desc">A cloud-based real-time chat platform with end-to-end encryption.</div>
-                <div class="tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">MongoDB</span>
-                    <span class="tag">WebSockets</span>
-                </div>
-            </div>
-            <!-- Projekt 4 -->
-            <div class="project">
-                <div class="project-title">CryptoTracker</div>
-                <div class="project-desc">A cryptocurrency tracker with live data and portfolio management.</div>
-                <div class="tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">Express</span>
-                    <span class="tag">MongoDB</span>
-                    <span class="tag">API</span>
                 </div>
             </div>
         </div>
