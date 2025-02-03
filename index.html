@@ -19,6 +19,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column; /* Damit der Footer am Ende ist */
         }
         .container {
             text-align: center;
@@ -26,6 +27,7 @@
             width: 100%;
             padding: 50px;
         }
+
         /* Animationen für jedes Element */
         @keyframes fadeInUp {
             from {
@@ -63,7 +65,7 @@
             }
         }
 
-        /* Animationen für die Elemente */
+        /* Styling für die Einleitung */
         .intro .hello {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
@@ -98,54 +100,29 @@
             animation-delay: 1.5s;
         }
 
-        .projects {
+        .projects-title {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 1.8s;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000; /* Schwarz für Projekttitel */
+        }
+
+        .projects {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 2s;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             justify-items: center;
             margin-top: 50px;
+            transition: opacity 1s ease-in-out;
         }
 
-        /* Styling für die Elemente */
-        h1 {
-            font-size: 64px;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-        h1 span {
-            color: #a855f7; /* Magenta für FullRisk */
-        }
-        p {
-            font-size: 22px;
-            color: #000; /* Text in schwarz */
-        }
-        .github-link {
-            display: flex;
-            align-items: center;
-            background: #1a1a1a;
-            padding: 12px 25px;
-            margin-top: 25px;
-            border-radius: 5px;
-            color: #a855f7;
-            font-size: 20px;
-            text-decoration: none;
-            border: 2px solid #a855f7;
-            transition: all 0.3s;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .github-link::before {
-            content: "➜";
-            margin-right: 12px;
-        }
-        .github-link:hover {
-            background: #a855f7;
-            color: #fff;
-        }
+        /* Styling für die Projekte */
         .project {
             background: #1a1a1a;
             padding: 25px;
@@ -184,6 +161,42 @@
             font-size: 16px;
             margin-right: 6px;
         }
+
+        /* Styling für den Scroll-Indikator */
+        .scroll-indicator {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 2.5s;
+        }
+
+        .scroll-indicator span {
+            font-size: 36px;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 3s;
+        }
+
+        /* Footer Styling */
+        .footer {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 2.5s;
+            font-size: 14px;
+            color: #000;
+            margin-top: 50px;
+        }
+        .footer a {
+            text-decoration: none;
+            color: #a855f7;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
@@ -197,7 +210,12 @@
             <p class="text">Ein 15 Jahre alter hobby-Programmierer der es liebt neue Sachen zu lernen.</p>
             <a href="https://github.com/FullRisk" target="_blank" class="github-link">Check me out on GitHub!</a>
         </div>
-        
+
+        <!-- Titel für Projekte -->
+        <div class="projects-title">
+            Projekte
+        </div>
+
         <div class="projects">
             <a href="https://example.com/portable-dimensions" class="project">
                 <div class="project-title">Portable Dimensions</div>
@@ -208,6 +226,28 @@
                 <div class="project-desc">Ein Minecraft Client der auf Customization beruht.</div>    
             </a>
         </div>
+
+        <!-- Scroll Indikator am Ende der Seite -->
+        <div class="scroll-indicator">
+            Scrolle <span>↓</span>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 Tim Lohrer. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
+        </div>
     </div>
+
+    <script>
+        // Funktion, um Projekte smooth erscheinen zu lassen, wenn gescrollt wird
+        window.addEventListener('scroll', function () {
+            let projects = document.querySelector('.projects');
+            let scrollPosition = window.scrollY;
+
+            if (scrollPosition > 150) {
+                projects.style.opacity = 1;
+            }
+        });
+    </script>
 </body>
 </html>
