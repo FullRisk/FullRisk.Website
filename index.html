@@ -4,93 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FullRisk | GitHub Profil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gravitica+Mono+Icon+Medium&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Fira Code', monospace;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #0d0d0d;
+            color: #fff;
             padding: 50px;
             overflow-x: hidden;
         }
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
             opacity: 0;
-            transform: translateX(100px);
-            animation: fadeInRight 1s ease-out forwards;
+            transform: translateY(-20px);
+            animation: fadeIn 1s ease-out forwards;
         }
-        @keyframes fadeInRight {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateX(100px);
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
         }
         h1 {
-            color: #333;
-            font-family: 'Gravitica Mono Icon Medium', monospace;
+            font-size: 36px;
+            font-weight: 600;
+        }
+        h1 span {
+            color: #9b59b6;
         }
         p {
             font-size: 18px;
-            color: #555;
+            color: #bbb;
+        }
+        a {
+            color: #9b59b6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         .projects {
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .project {
-            background: white;
+            background: #1a1a1a;
             padding: 15px;
             margin: 10px auto;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+            max-width: 500px;
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease-in-out;
         }
-        .project:hover::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 0, 0, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            animation: hoverEffect 0.3s ease-out forwards;
+        .project:hover {
+            transform: scale(1.05);
         }
-        @keyframes hoverEffect {
-            from {
-                transform: translate(-50%, -50%) scale(0);
-            }
-            to {
-                transform: translate(-50%, -50%) scale(1);
-            }
+        .project-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .project-desc {
+            font-size: 16px;
+            color: #bbb;
+        }
+        .tags {
+            margin-top: 10px;
+        }
+        .tag {
+            display: inline-block;
+            background: #9b59b6;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>👋 Hi, I’m @FullRisk</h1>
-        <p>👀 I’m interested in ... (hier deine Interessen einfügen)</p>
-        <p>🌱 I’m currently learning ... (hier dein aktuelles Lernprojekt einfügen)</p>
-        <p>💞️ I’m looking to collaborate on ... (hier mögliche Kooperationen einfügen)</p>
-        <p>📫 How to reach me: ... (hier deine Kontaktinformationen einfügen)</p>
-        <p>😄 Pronouns: ... (deine Pronomen einfügen)</p>
-        <p>⚡ Fun fact: ... (ein lustiger Fakt über dich)</p>
+        <h1>Hello <br>I am <span>FullRisk</span>.</h1>
+        <p>A A hobby programmer interested in java and html..</p>
+        <p>Check me out on <a href="https://github.com/FullRisk" target="_blank">GitHub</a>!</p>
+        
         <div class="projects">
-            <h2>Meine Projekte</h2>
-            <div class="project">Projekt 1</div>
-            <div class="project">Projekt 2</div>
-            <div class="project">Projekt 3</div>
+            <h2>Projects</h2>
+            <div class="project">
+                <div class="project-title">GalaxyBot</div>
+                <div class="project-desc">A Discord bot with 1.7M+ users for support systems, moderation & team management.</div>
+                <div class="tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Vue</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-title">NoRiskClient</div>
+                <div class="project-desc">A custom Minecraft client with extensive modding & multiplayer features.</div>
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">Rust</span>
+                    <span class="tag">Go</span>
+                    <span class="tag">Dart</span>
+                    <span class="tag">Svelte</span>
+                    <span class="tag">TypeScript</span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
