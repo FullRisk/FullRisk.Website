@@ -8,17 +8,28 @@
     <style>
         body {
             font-family: 'Fira Code', monospace;
-            background-color: #0d0d0d;
+            background-color: #000;
             color: #fff;
             padding: 50px;
             margin: 0;
             text-align: left;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
+            padding-left: 50px;
         }
-        @keyframes slideIn {
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideInRight {
             from {
                 opacity: 0;
                 transform: translateX(50px);
@@ -28,89 +39,96 @@
                 transform: translateX(0);
             }
         }
-        .intro {
+        .intro span {
             opacity: 0;
-            animation: slideIn 1s ease-out forwards;
+            animation: slideInLeft 1s ease-out forwards;
+        }
+        .content {
+            opacity: 0;
+            animation: slideInRight 1s ease-out 0.5s forwards;
         }
         h1 {
-            font-size: 48px;
+            font-size: 64px;
             font-weight: bold;
+            margin-bottom: 30px;
         }
         h1 span {
-            color: #9b59b6;
+            color: #a855f7;
         }
         p {
-            font-size: 20px;
-            color: #bbb;
+            font-size: 22px;
+            color: #ddd;
         }
         .github-link {
             display: flex;
             align-items: center;
             background: #1a1a1a;
-            padding: 10px 20px;
-            margin-top: 20px;
+            padding: 12px 25px;
+            margin-top: 25px;
             border-radius: 5px;
-            color: #9b59b6;
-            font-size: 18px;
+            color: #a855f7;
+            font-size: 20px;
             text-decoration: none;
-            border: 2px solid #9b59b6;
+            border: 2px solid #a855f7;
             transition: all 0.3s;
             width: fit-content;
         }
         .github-link::before {
             content: "➜";
-            margin-right: 10px;
+            margin-right: 12px;
         }
         .github-link:hover {
-            background: #9b59b6;
+            background: #a855f7;
             color: #fff;
         }
         .projects {
-            margin-top: 40px;
+            margin-top: 50px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 20px;
         }
         .project {
             background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.15);
             transition: transform 0.3s ease-in-out;
         }
         .project:hover {
             transform: scale(1.05);
         }
         .project-title {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             color: #fff;
         }
         .project-desc {
-            font-size: 18px;
-            color: #bbb;
+            font-size: 20px;
+            color: #ccc;
         }
         .tags {
-            margin-top: 10px;
+            margin-top: 12px;
         }
         .tag {
             display: inline-block;
-            background: #9b59b6;
+            background: #a855f7;
             color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            margin-right: 5px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-right: 6px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="intro">Hello 👋<br> I am <span>Tim Lohrer</span>.</h1>
-        <p>Ein 18-jähriger Full-Stack-Entwickler aus Deutschland mit über 5 Jahren Erfahrung.</p>
-        <a href="https://github.com/FullRisk" target="_blank" class="github-link">Check me out on GitHub!</a>
+        <div class="content">
+            <p>Ein 18-jähriger Full-Stack-Entwickler aus Deutschland mit über 5 Jahren Erfahrung.</p>
+            <a href="https://github.com/FullRisk" target="_blank" class="github-link">Check me out on GitHub!</a>
+        </div>
         
-        <div class="projects">
+        <div class="projects content">
             <div class="project">
                 <div class="project-title">GalaxyBot</div>
                 <div class="project-desc">Ein Discord-Bot mit 1.7M+ Nutzern für Support, Moderation & Team-Management.</div>
