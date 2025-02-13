@@ -329,49 +329,74 @@ and is interested in websites.</p>
             </a>
         </div>
 
+        
+    <script>
+        console.log("Website geladen");
+
+        
+        const starContainer = document.querySelector('.stars');
+        for (let i = 0; i < 500; i++) { 
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100 + 100}%`; 
+            star.style.animationDuration = `${Math.random() * 20 + 10}s`; 
+            star.style.animationDelay = `${Math.random() * 5}s`; 
+            starContainer.appendChild(star);
+        }
+
+        
+        const bgMusic = document.getElementById('bg-music');
+        bgMusic.volume = 0.1; 
+        document.body.addEventListener('click', () => {
+            bgMusic.play();
+        });
+
+        document.querySelector('.nav-links a[href="impressum.html"]').addEventListener('click', (event) => {
+            event.preventDefault();
+            document.getElementById('widget').classList.toggle('show');
+        });
+        function accept() {
+            document.getElementById('overlay').style.display = 'none';
+            document.querySelector('.download-button').style.display = 'block'; 
+            document.querySelectorAll('.fade-in').forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('show'); 
+                }, index * 500); 
+            });
+        }
+
+        function decline() {
+            window.close();
+        }
+
+        document.querySelector('.download-button').addEventListener('click', () => {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                const rect = star.getBoundingClientRect();
+                const buttonRect = document.querySelector('.download-button').getBoundingClientRect();
+                const deltaX = buttonRect.left + buttonRect.width / 2 - (rect.left + rect.width / 2);
+                const deltaY = buttonRect.top + buttonRect.height / 2 - (rect.top + rect.height / 2);
+                star.style.transition = 'transform 1s, opacity 1s';
+                star.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0)`;
+                star.style.opacity = '0';
+            });
+        });
+        
+        window.addEventListener('load', () => {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.style.transition = 'none';
+                star.style.transform = 'none';
+                star.style.opacity = '1';
+            });
+        });
+    </script>
+
         <!-- Footer -->
         <div class="footer">
             <p>&copy; 2025 FullRisk. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
         </div>
     </div>
-    <script>
-        // Dark Mode Toggle Funktionalität
-const toggleButton = document.getElementById('darkModeToggle');
-const body = document.body;
-const nav = document.querySelector('nav');
-
-// Überprüfen, ob der Benutzer eine bevorzugte Theme-Einstellung im LocalStorage hat
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark-mode');
-  nav.classList.add('dark-mode');
-  toggleButton.textContent = '☀️'; // Wechselt das Symbol
-} else {
-  body.classList.add('light-mode');
-  nav.classList.add('light-mode');
-  toggleButton.textContent = '🌙'; // Standard Text für den Button
-}
-
-// Event-Listener für den Button
-toggleButton.addEventListener('click', () => {
-  if (body.classList.contains('dark-mode')) {
-    body.classList.replace('dark-mode', 'light-mode');
-    nav.classList.replace('dark-mode', 'light-mode');
-    toggleButton.textContent = '🌙'; // Wechselt das Symbol
-    localStorage.setItem('theme', 'light'); // Speichert die Einstellung im LocalStorage
-  } else {
-    body.classList.replace('light-mode', 'dark-mode');
-    nav.classList.replace('light-mode', 'dark-mode');
-    toggleButton.textContent = '☀️'; // Wechselt das Symbol
-    localStorage.setItem('theme', 'dark'); // Speichert die Einstellung im LocalStorage
-  }
-});
-
 </body>
-
-    <audio id="backgroundMusic" loop>
-    <source src="backgroundmusic.mp3" type="audio/mpeg">
-    Dein Browser unterstützt kein Audio-Element.
-</audio>
-<button id="musicToggle">🔊 Musik an</button>
-
 </html>
