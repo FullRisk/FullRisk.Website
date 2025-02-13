@@ -309,12 +309,12 @@ nav.dark-mode {
     <a href="projetcs.html">Projekte</a>
     <a href="contact.html">Kontakt</a>
     <audio id="backgroundMusic" loop>
+
+</div>
+    <audio autoplay loop>
     <source src="backgroundmusic.mp3" type="audio/mpeg">
     Dein Browser unterstützt kein Audio-Element.
 </audio>
-<button id="musicToggle">🔊 Musik an</button>
-<source src="audio/backgroundmusic.mp3" type="audio/mpeg">
-</div>
     <div class="container">
         <h1 class="intro">
             <span class="hello">Hello</span><br> 
@@ -325,14 +325,12 @@ nav.dark-mode {
             <p class="text">A 15 year old hobby programmer who loves learning new things
 and is interested in websites.</p>
             <a href="https://github.com/FullRisk" target="_blank" class="github-link">My GitHub!</a>
-        
         </div>
 
         <!-- Titel für Projekte -->
         <div class="projects-title">
             Projekte
         </div>
-        <audio id="bg-music" src="backgroundmusic.mp3" loop></audio>
         <div class="projects">
             <a href="" class="project">
                 <div class="project-title">Portable Dimensions</div>
@@ -351,17 +349,6 @@ and is interested in websites.</p>
                 <div class="project-desc"></div>   
             </a>
         </div>
-<script>
-      }
-
-        
-        const bgMusic = document.getElementById('bg-music');
-        bgMusic.volume = 0.1; 
-        document.body.addEventListener('click', () => {
-            bgMusic.play();
-        });
-    <script>
-        
         <!-- Footer -->
         <div class="footer">
             <p>&copy; 2025 FullRisk. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
