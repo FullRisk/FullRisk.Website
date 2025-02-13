@@ -78,6 +78,24 @@ nav.dark-mode {
             width: 100%;
             padding: 50px;
         }
+        
+        #musicToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#musicToggle:hover {
+    background: #555;
+}
+
         /* Animationen für jedes Element */
         @keyframes fadeInUp {
             from {
@@ -290,8 +308,13 @@ nav.dark-mode {
     <a href="index.html">Home</a>
     <a href="projetcs.html">Projekte</a>
     <a href="contact.html">Kontakt</a>
+    <audio id="backgroundMusic" loop>
+    <source src="backgroundmusic.mp3" type="audio/mpeg">
+    Dein Browser unterstützt kein Audio-Element.
+</audio>
+<button id="musicToggle">🔊 Musik an</button>
+
 </div>
-      <audio id="bg-music" src="backgroundmusik.mp3" loop></audio>
     <div class="container">
         <h1 class="intro">
             <span class="hello">Hello</span><br> 
@@ -330,9 +353,32 @@ and is interested in websites.</p>
         </div>
 
         
-    <script>
+<script>
+const music = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+// Prüfen, ob die Musik bereits gespeichert ist (z. B. wenn der Nutzer die Seite neu lädt)
+if (localStorage.getItem("musicPlaying") === "true") {
+    music.play();
+    musicToggle.textContent = "🔇 Musik aus";
+}
+
+// Event-Listener für den Button
+musicToggle.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        musicToggle.textContent = "🔇 Musik aus";
+        localStorage.setItem("musicPlaying", "true");
+    } else {
+        music.pause();
+        musicToggle.textContent = "🔊 Musik an";
+        localStorage.setItem("musicPlaying", "false");
+    }
+});
+</script>
+
     
-    </script>
+
 
         <!-- Footer -->
         <div class="footer">
