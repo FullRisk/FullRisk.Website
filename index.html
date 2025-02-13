@@ -332,7 +332,7 @@ and is interested in websites.</p>
         <div class="projects-title">
             Projekte
         </div>
-
+        <audio id="bg-music" src="backgroundmusic.mp3" loop></audio>
         <div class="projects">
             <a href="" class="project">
                 <div class="project-title">Portable Dimensions</div>
@@ -351,35 +351,17 @@ and is interested in websites.</p>
                 <div class="project-desc"></div>   
             </a>
         </div>
+<script>
+      }
 
         
-<script>
-const music = document.getElementById("backgroundMusic");
-const musicToggle = document.getElementById("musicToggle");
-
-// Prüfen, ob die Musik bereits gespeichert ist (z. B. wenn der Nutzer die Seite neu lädt)
-if (localStorage.getItem("musicPlaying") === "true") {
-    music.play();
-    musicToggle.textContent = "🔇 Musik aus";
-}
-
-// Event-Listener für den Button
-musicToggle.addEventListener("click", () => {
-    if (music.paused) {
-        music.play();
-        musicToggle.textContent = "🔇 Musik aus";
-        localStorage.setItem("musicPlaying", "true");
-    } else {
-        music.pause();
-        musicToggle.textContent = "🔊 Musik an";
-        localStorage.setItem("musicPlaying", "false");
-    }
-});
-</script>
-
-    
-
-
+        const bgMusic = document.getElementById('bg-music');
+        bgMusic.volume = 0.1; 
+        document.body.addEventListener('click', () => {
+            bgMusic.play();
+        });
+    <script>
+        
         <!-- Footer -->
         <div class="footer">
             <p>&copy; 2025 FullRisk. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
