@@ -334,5 +334,37 @@ and is interested in websites.</p>
             <p>&copy; 2025 FullRisk. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
         </div>
     </div>
+    <script>
+        // Dark Mode Toggle Funktionalität
+const toggleButton = document.getElementById('darkModeToggle');
+const body = document.body;
+const nav = document.querySelector('nav');
+
+// Überprüfen, ob der Benutzer eine bevorzugte Theme-Einstellung im LocalStorage hat
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+  nav.classList.add('dark-mode');
+  toggleButton.textContent = '☀️'; // Wechselt das Symbol
+} else {
+  body.classList.add('light-mode');
+  nav.classList.add('light-mode');
+  toggleButton.textContent = '🌙'; // Standard Text für den Button
+}
+
+// Event-Listener für den Button
+toggleButton.addEventListener('click', () => {
+  if (body.classList.contains('dark-mode')) {
+    body.classList.replace('dark-mode', 'light-mode');
+    nav.classList.replace('dark-mode', 'light-mode');
+    toggleButton.textContent = '🌙'; // Wechselt das Symbol
+    localStorage.setItem('theme', 'light'); // Speichert die Einstellung im LocalStorage
+  } else {
+    body.classList.replace('light-mode', 'dark-mode');
+    nav.classList.replace('light-mode', 'dark-mode');
+    toggleButton.textContent = '☀️'; // Wechselt das Symbol
+    localStorage.setItem('theme', 'dark'); // Speichert die Einstellung im LocalStorage
+  }
+});
+<script>
 </body>
 </html>
