@@ -407,7 +407,13 @@ and is interested in BobTony.</p>
             star.style.animationDelay = `${Math.random() * 5}s`;  // Zufällige Verzögerung der Animation
             starContainer.appendChild(star);
         }
+        const bgMusic = document.getElementById('bg-music');
+bgMusic.volume = 0.1; // Setzt die Lautstärke
+document.body.addEventListener('click', () => {
+    bgMusic.play(); // Spielt Musik ab, wenn der Benutzer auf die Seite klickt
+});
     </script>
+    <audio id="bg-music" src="bgmusik.mp3" loop></audio>
 </body>
 </html>
 
