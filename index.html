@@ -3,26 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> FullRisk </title>
-        
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-     <audio id="bg-music" src="bgmusik.mp3" loop></audio>
-    <audio loop autoplay>
-        <source src="bgmusik.mp3">
+        <audio loop autoplay>
+        <source src="backgroundmusic.mp3">
 
 </audio>
+    <title>FullRisk | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: "Press Start 2P";
-            background-color: black;
-            overflow: hidden; 
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100vh;
-            margin: 0; 
-        }
         * {
             margin: 0;
             padding: 0;
@@ -32,7 +19,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 150%;
+            width: 100%;
             height: 100%;
             z-index: 0; 
             pointer-events: none; 
@@ -40,7 +27,7 @@
 
         .star {
             position: absolute;
-            width: 6px; 
+            width: 3px; 
             height: 3px;
             background: white;
             border-radius: 50%; 
@@ -67,7 +54,7 @@
       
     .navbar {
         width: 100%;
-        background-color: #fff;
+        background-color: #1a1a1a;
         padding: 15px 0;
         text-align: center;
         position: fixed;
@@ -77,7 +64,7 @@
         z-index: 1000;
     }
     .navbar a {
-        color: #000000;
+        color: #fff;
         text-decoration: none;
         margin: 0 15px;
         font-size: 18px;
@@ -89,8 +76,8 @@
         body, html {
             height: 100%;
             font-family: 'Fira Code', monospace;
-            background-color: #00000; /* Hintergrund weiß */
-            color: #00000; /* Standardtext schwarz */
+            background-color: #000000; /* Hintergrund weiß */
+            color: #000; /* Standardtext schwarz */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -272,7 +259,7 @@
         }
         .project {
             background: #1a1a1a;
-            padding:25px;
+            padding: 25px;
             border-radius: 12px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.15);
             border: 2px solid #333; /* Hellgraue Umrandung */
@@ -314,7 +301,7 @@
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 2.5s;
-            font-size: 1px;
+            font-size: 5px;
             color: #8E8E8E;
             margin-top: 50px;
         }
@@ -354,7 +341,7 @@
         </h1>
         <div class="content">
             <p class="text">A hobby programmer who loves learning new things
-and is interested in BobTony.</p>
+and is interested in websites.</p>
             <a href="https://github.com/FullRisk" target="_blank" class="github-link">My GitHub!</a>
         </div>
          <audio autoplay loop>
@@ -398,22 +385,15 @@ and is interested in BobTony.</p>
     <script>
         // JavaScript zum Erzeugen der Sterne
         const starContainer = document.querySelector('.stars');
-        for (let i = 0; i < 400; i++) { 
+        for (let i = 0; i < 500; i++) { 
             const star = document.createElement('div');
             star.classList.add('star');
-            star.style.right = `${Math.random() * 100}%`;  // Zufällige horizontale Position
-            star.style.left = `${Math.random() *200 - 50}%`;  // Zufällige horizontale Position
-            star.style.top = `${Math.random() * 100 + 100}%`;  // Zufällige vertikale Position
-            star.style.animationDuration = `${Math.random() * 20 + 10}s`;  // Zufällige Dauer der Animation
-            star.style.animationDelay = `${Math.random() * 5}s`;  // Zufällige Verzögerung der Animation
+            star.style.left = ${Math.random() * 100}%;  // Zufällige horizontale Position
+            star.style.top = ${Math.random() * 100 + 100}%;  // Zufällige vertikale Position
+            star.style.animationDuration = ${Math.random() * 20 + 10}s;  // Zufällige Dauer der Animation
+            star.style.animationDelay = ${Math.random() * 5}s;  // Zufällige Verzögerung der Animation
             starContainer.appendChild(star);
         }
-        const bgMusic = document.getElementById('bg-music');
-bgMusic.volume = 0.1; // Setzt die Lautstärke
-document.body.addEventListener('click', () => {
-    bgMusic.play(); // Spielt Musik ab, wenn der Benutzer auf die Seite klickt
-});
     </script>
-    <audio id="bg-music" src="bgmusik.mp3" loop></audio>
 </body>
 </html>
