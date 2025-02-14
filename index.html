@@ -30,7 +30,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 150%;
             height: 100%;
             z-index: 0; 
             pointer-events: none; 
@@ -38,7 +38,7 @@
 
         .star {
             position: absolute;
-            width: 3px; 
+            width: 6px; 
             height: 3px;
             background: white;
             border-radius: 50%; 
@@ -349,7 +349,7 @@
         <h1 class="intro">
             <span class="hello">Hello</span><br> 
             <span class="i-am">I am</span> 
-            <span class="name">FullRisk</span>
+            <span class="name">FullRisk</span>.
         </h1>
         <div class="content">
             <p class="text">A 15 year old hobby programmer who loves learning new things
@@ -397,10 +397,11 @@ and is interested in BobTony.</p>
     <script>
         // JavaScript zum Erzeugen der Sterne
         const starContainer = document.querySelector('.stars');
-        for (let i = 0; i < 500; i++) { 
+        for (let i = 0; i < 400; i++) { 
             const star = document.createElement('div');
             star.classList.add('star');
-            star.style.left = `${Math.random() * 100}%`;  // Zufällige horizontale Position
+            star.style.right = `${Math.random() * 100}%`;  // Zufällige horizontale Position
+            star.style.left = `${Math.random() *200 - 50}%`;  // Zufällige horizontale Position
             star.style.top = `${Math.random() * 100 + 100}%`;  // Zufällige vertikale Position
             star.style.animationDuration = `${Math.random() * 20 + 10}s`;  // Zufällige Dauer der Animation
             star.style.animationDelay = `${Math.random() * 5}s`;  // Zufällige Verzögerung der Animation
@@ -409,3 +410,4 @@ and is interested in BobTony.</p>
     </script>
 </body>
 </html>
+
