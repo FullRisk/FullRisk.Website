@@ -10,41 +10,59 @@
     <title>FullRisk | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: "Press Start 2P";
+            background-color: black;
+            overflow: hidden; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0; /* Entfernt den Standard-Abstand des Body */
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-           /* Button Styling */
-        button.dark-mode-btn {
-            background: none;
-            color: white;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
+         .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            pointer-events: none; 
         }
 
-        /* Light Mode Styles */
-        body.light-mode {
-            background-color: white;
-            color: black;
-        }
-  nav.light-mode {
-            background-color: #f0f0f0;
-            color: black;
-        }
-
-        /* Dark Mode Styles */
-        body.dark-mode {
-            background-color: #121212;
-            color: white;
+        .star {
+            position: absolute;
+            width: 3px; 
+            height: 3px;
+            background: white;
+            border-radius: 50%; 
+            opacity: 1; 
+            animation: starAnimation 30s linear infinite; 
         }
 
-        nav.dark-mode {
-            background-color: #333;
-            color: white;
+        @keyframes starAnimation {
+            0% {
+                transform: translateY(100vh); 
+                background: white;
+                opacity: 1;
+            }
+            50% {
+                background: white; 
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200vh); 
+                background: #6f00ff; 
+                opacity: 1;
+            }
         }
-
+      
     .navbar {
         width: 100%;
         background-color: #1a1a1a;
@@ -69,7 +87,7 @@
         body, html {
             height: 100%;
             font-family: 'Fira Code', monospace;
-            background-color: #fff; /* Hintergrund weiß */
+            background-color: #2c2c2c; /* Hintergrund weiß */
             color: #000; /* Standardtext schwarz */
             display: flex;
             justify-content: center;
@@ -159,14 +177,14 @@
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 0.2s;
-            color: #000; /* "Hello" ist jetzt schwarz */
+            color: #ffffff; /* "Hello" ist jetzt schwarz */
         }
 
         .intro .i-am {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 0.5s;
-            color: #000; /* "I am" ist jetzt schwarz */
+            color: #ffffff; /* "I am" ist jetzt schwarz */
         }
 
         .intro .name {
@@ -180,7 +198,7 @@
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 1.2s;
-            color: #000; /* Text ist jetzt schwarz */
+            color: ##ffffff; /* Text ist jetzt schwarz */
         }
 
         .content .github-link {
@@ -196,7 +214,7 @@
             font-size: 36px;
             font-weight: bold;
             margin-bottom: 30px;
-            color: #000; /* Schwarz für Projekttitel */
+            color: #ffffff; /* Schwarz für Projekttitel */
         }
 
         .projects {
@@ -221,7 +239,7 @@
         }
         p {
             font-size: 22px;
-            color: #000; /* Text in schwarz */
+            color: #fff; /* Text in schwarz */
         }
         .github-link {
             display: flex;
@@ -252,7 +270,7 @@
         }
         .project {
             background: #1a1a1a;
-            padding: 25px;
+            padding:25px;
             border-radius: 12px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.15);
             border: 2px solid #333; /* Hellgraue Umrandung */
@@ -294,7 +312,7 @@
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 2.5s;
-            font-size: 5px;
+            font-size: 1px;
             color: #8E8E8E;
             margin-top: 50px;
         }
@@ -335,7 +353,7 @@
         </h1>
         <div class="content">
             <p class="text">A 15 year old hobby programmer who loves learning new things
-and is interested in websites.</p>
+and is interested in BobTony.</p>
             <a href="https://github.com/FullRisk" target="_blank" class="github-link">My GitHub!</a>
         </div>
          <audio autoplay loop>
@@ -371,27 +389,22 @@ and is interested in websites.</p>
         </div>
     </div>
     
-      <script>
-        // Dark Mode Toggle Script
-        const themeToggleButton = document.getElementById('theme-toggle');
+      <!-- Sterne-Container -->
+    <div class="stars fade-in">
+    </div>
 
-        themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            document.body.classList.toggle('light-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
 
-        // Beim Laden der Seite Theme von LocalStorage übernehmen
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.body.classList.remove('light-mode');
-        } else {
-            document.body.classList.add('light-mode');
-            document.body.classList.remove('dark-mode');
+    <script>
+        // JavaScript zum Erzeugen der Sterne
+        const starContainer = document.querySelector('.stars');
+        for (let i = 0; i < 500; i++) { 
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;  // Zufällige horizontale Position
+            star.style.top = `${Math.random() * 100 + 100}%`;  // Zufällige vertikale Position
+            star.style.animationDuration = `${Math.random() * 20 + 10}s`;  // Zufällige Dauer der Animation
+            star.style.animationDelay = `${Math.random() * 5}s`;  // Zufällige Verzögerung der Animation
+            starContainer.appendChild(star);
         }
     </script>
 </body>
