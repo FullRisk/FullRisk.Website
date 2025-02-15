@@ -340,28 +340,46 @@ and is interested in websites.</p>
 
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+       document.addEventListener("DOMContentLoaded", function () {
         const starContainer = document.querySelector('.stars');
         const numStars = 100; 
-        for (let i = 0; i < numStars; i++) {
+
+        function createStar() {
             const star = document.createElement('div');
             star.classList.add('star');
 
+            // Zufällige Größe und Position
             const size = Math.random() * 3 + 1; 
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
             star.style.top = `${Math.random() * 100}vh`;
             star.style.left = `${Math.random() * 100}vw`;
-            star.style.animation = `twinkle ${Math.random() * 5 + 2}s infinite alternate`;
+            
+            // Zufällige Dauer und Verzögerung für Animation
+            const duration = Math.random() * 5 + 2; 
+            star.style.animation = `fadeOutRespawn ${duration}s infinite`;
+
+            // Stern nach Ende der Animation an neuer Position erscheinen lassen
+            star.addEventListener("animationiteration", () => {
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+            });
 
             starContainer.appendChild(star);
         }
+
+        for (let i = 0; i < numStars; i++) {
+            createStar();
+        }
     });
+
+    // Animationen hinzufügen
     const styleSheet = document.styleSheets[0];
     styleSheet.insertRule(`
-        @keyframes twinkle {
-            0% { opacity: 0.3; }
-            100% { opacity: 1; }
+        @keyframes fadeOutRespawn {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0; }
         }
     `, styleSheet.cssRules.length);
 </script>
