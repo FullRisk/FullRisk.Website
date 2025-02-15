@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> FullRisk </title>
-        
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-<iframe src="audio-player.html" style="display:none;" id="audioFrame"></iframe>
+<audio id="bg-music" loop>
+    <source src="bgmusik.mp3" type="audio/mpeg">
+    Dein Browser unterstützt kein Audio-Element.
+</audio>
+
 
     <style>
         body {
@@ -418,6 +421,21 @@ and is interested in BobTony.</p>
             100% { opacity: 0; }
         }
     `, styleSheet.cssRules.length);
+            document.addEventListener("DOMContentLoaded", function() {
+        const audio = document.getElementById("bg-music");
+        
+        // Versuche, die Musik automatisch zu starten
+        try {
+            audio.play().then(() => {
+                // Musik läuft jetzt
+                console.log("Musik wird abgespielt");
+            }).catch((err) => {
+                console.log("Fehler beim Starten der Musik:", err);
+            });
+        } catch (error) {
+            console.log("Fehler beim Abspielen der Musik:", error);
+        }
+    });
     </script>
     <audio id="bg-music" src="bgmusik.mp3" loop></audio>
 </body>
