@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <audio loop autoplay>
+    <title> FullRisk </title>
+        
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+     <audio id="bg-music" src="bgmusik.mp3" loop></audio>
+    <audio loop autoplay>
         <source src="bgmusik.mp3">
 
 </audio>
-    <title>FullRisk | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: "Press Start 2P";
+            background-color: black;
+            overflow: hidden; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0; 
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         .stars {
     position: fixed;
     width: 100%;
@@ -30,11 +44,12 @@
     border-radius: 50%;
     opacity: 0.8;
     box-shadow: 0 0 5px white;
+    animation: twinkle linear infinite;
 }
-
+   
     .navbar {
         width: 100%;
-        background-color: #1a1a1a;
+        background-color: #fff;
         padding: 15px 0;
         text-align: center;
         position: fixed;
@@ -44,7 +59,7 @@
         z-index: 1000;
     }
     .navbar a {
-        color: #fff;
+        color: #000000;
         text-decoration: none;
         margin: 0 15px;
         font-size: 18px;
@@ -56,8 +71,8 @@
         body, html {
             height: 100%;
             font-family: 'Fira Code', monospace;
-            background-color: #000000; /* Hintergrund weiß */
-            color: #000; /* Standardtext schwarz */
+            background-color: #00000; /* Hintergrund weiß */
+            color: #00000; /* Standardtext schwarz */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -123,34 +138,41 @@
                 transform: translateX(0);
             }
         }
-        }
+        @keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
 
+    
+        
+        /* Animationen für die Elemente */
         .intro .hello {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 0.2s;
-            color: #ffffff; 
+            color: #ffffff; /* "Hello" ist jetzt schwarz */
         }
 
         .intro .i-am {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 0.5s;
-            color: #ffffff;
+            color: #ffffff; /* "I am" ist jetzt schwarz */
         }
 
         .intro .name {
             opacity: 0;
             animation: smoothRight 1.5s ease-out forwards;
             animation-delay: 0.8s;
-            color: #a855f7; 
+            color: #a855f7; /* Magenta für "FullRisk" */
         }
 
         .content .text {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 1.2s;
-            color: ##ffffff;
+            color: ##ffffff; /* Text ist jetzt schwarz */
         }
 
         .content .github-link {
@@ -166,7 +188,7 @@
             font-size: 36px;
             font-weight: bold;
             margin-bottom: 30px;
-            color: #ffffff; 
+            color: #ffffff; /* Schwarz für Projekttitel */
         }
 
         .projects {
@@ -180,17 +202,18 @@
             margin-top: 50px;
         }
 
+        /* Styling für die Elemente */
         h1 {
             font-size: 64px;
             font-weight: bold;
             margin-bottom: 30px;
         }
         h1 span {
-            color: #a855f7;
+            color: #a855f7; /* Magenta für FullRisk */
         }
         p {
             font-size: 22px;
-            color: #fff;
+            color: #fff; /* Text in schwarz */
         }
         .github-link {
             display: flex;
@@ -221,7 +244,7 @@
         }
         .project {
             background: #1a1a1a;
-            padding: 25px;
+            padding:25px;
             border-radius: 12px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.15);
             border: 2px solid #333; /* Hellgraue Umrandung */
@@ -234,7 +257,8 @@
         }
         .project:hover {
             transform: scale(1.05);
-            border: 2px solid #ddd; 
+            border: 2px solid #ddd; /* Umrandung wird etwas heller bei Hover */
+        }
         .project-title {
             font-size: 26px;
             font-weight: bold;
@@ -257,12 +281,12 @@
             margin-right: 6px;
         }
 
-     
+        /* Footer Styling */
         .footer {
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 2.5s;
-            font-size: 5px;
+            font-size: 1px;
             color: #8E8E8E;
             margin-top: 50px;
         }
@@ -274,6 +298,7 @@
         .footer a:hover {
             color: #f1f1f1;
         }
+           /* Dark Mode Button Styling */
         button.dark-mode-btn {
             padding: 10px 20px;
             font-size: 16px;
@@ -301,15 +326,16 @@
         </h1>
         <div class="content">
             <p class="text">A hobby programmer who loves learning new things
-and is interested in websites.</p>
+and is interested in BobTony.</p>
             <a href="https://github.com/FullRisk" target="_blank" class="github-link">My GitHub!</a>
         </div>
          <audio autoplay loop>
     <source src="backgroundmusic.mp3" type="audio/mpeg">
     Dein Browser unterstützt kein Audio-Element.
 </audio>
-        <div class="stars"></div>
+<div class="stars"></div>
 
+        <!-- Titel für Projekte -->
         <div class="projects-title">
             Projekte
         </div>
@@ -331,36 +357,43 @@ and is interested in websites.</p>
                 <div class="project-desc"></div>   
             </a>
         </div>
+        <!-- Footer -->
         <div class="footer">
             <p>&copy; 2025 FullRisk. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
         </div>
     </div>
     
+      <!-- Sterne-Container -->
+
     </div>
 
 
-  <script>
-       document.addEventListener("DOMContentLoaded", function () {
+    <script>
+   document.addEventListener("DOMContentLoaded", function () {
         const starContainer = document.querySelector('.stars');
-        const numStars = 100; 
+        const numStars = 100; // Anzahl der Sterne
 
         function createStar() {
             const star = document.createElement('div');
             star.classList.add('star');
 
-            // Zufällige Größe und Position
-            const size = Math.random() * 3 + 1; 
+            // Zufällige Position und Größe
+            const size = Math.random() * 3 + 1; // Zwischen 1px und 4px
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
             star.style.top = `${Math.random() * 100}vh`;
             star.style.left = `${Math.random() * 100}vw`;
-            
-            // Zufällige Dauer und Verzögerung für Animation
-            const duration = Math.random() * 5 + 2; 
-            star.style.animation = `fadeOutRespawn ${duration}s infinite`;
 
-            // Stern nach Ende der Animation an neuer Position erscheinen lassen
-            star.addEventListener("animationiteration", () => {
+            // Zufällige Animationsdauer und Verzögerung
+            const duration = Math.random() * 4 + 3; // 3s bis 7s
+            star.style.animationDuration = `${duration}s`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+
+            // Animation zufällig zuweisen
+            star.style.animationName = Math.random() > 0.5 ? 'twinkle' : 'fadeOutRespawn';
+
+            // Stern nach der Animation neu positionieren
+            star.addEventListener('animationiteration', () => {
                 star.style.top = `${Math.random() * 100}vh`;
                 star.style.left = `${Math.random() * 100}vw`;
             });
@@ -373,15 +406,22 @@ and is interested in websites.</p>
         }
     });
 
-    // Animationen hinzufügen
+    // Animationen für Flackern und Respawn
     const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(`
+        @keyframes twinkle {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+    `, styleSheet.cssRules.length);
     styleSheet.insertRule(`
         @keyframes fadeOutRespawn {
             0% { opacity: 1; }
-            50% { opacity: 0.5; }
+            90% { opacity: 0; }
             100% { opacity: 0; }
         }
     `, styleSheet.cssRules.length);
-</script>
+    </script>
+    <audio id="bg-music" src="bgmusik.mp3" loop></audio>
 </body>
 </html>
