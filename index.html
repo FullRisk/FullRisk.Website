@@ -5,23 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> FullRisk </title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-<audio loop autoplay>
+    <audio loop autoplay>
         <source src="bgmusik.mp3">
-
-</audio>
-
+    </audio>
 
     <style>
         body {
             font-family: "Press Start 2P";
             background-color: black;
-            overflow: hidden; 
+            overflow: auto;
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            height: 100vh;
-            margin: 0; 
+            justify-content: flex-start;
+            min-height: 100%;
+            margin: 0;
         }
         * {
             margin: 0;
@@ -83,6 +81,7 @@
             max-width: 1000px;
             width: 100%;
             padding: 50px;
+            margin-top: 550px;
         }
         
         #musicToggle {
@@ -188,6 +187,7 @@
             font-size: 36px;
             font-weight: bold;
             margin-bottom: 30px;
+            margin-top: 75px;
             color: #ffffff; /* Schwarz für Projekttitel */
         }
 
@@ -201,6 +201,46 @@
             justify-items: center;
             margin-top: 50px;
         }
+   /* Fade-In-Animation für About Me */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Startet leicht unterhalb */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Kommt auf die normale Position */
+    }
+}
+
+/* About Me Section */
+.about-me {
+    background-color: #1a1a1a; /* Dunkelgrauer Hintergrund */
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: 100px;
+    color: #fff; /* Weißer Text für besseren Kontrast */
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1); /* Leichte Schatteneffekte */
+    opacity: 0; /* Startet unsichtbar */
+    animation: fadeIn 1.5s ease-out forwards; /* Animiert das Einblenden */
+    animation-delay: 2.5s; /* Verzögert das Einblenden (wird nach den anderen Elementen eingeblendet) */
+}
+
+.about-me-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #a855f7; /* Magenta für den Titel */
+    margin-bottom: 20px;
+}
+
+.about-me-content {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 
         /* Styling für die Elemente */
         h1 {
@@ -356,7 +396,14 @@ and is interested in BobTony.</p>
                 <div class="project-title">Kommt noch...</div>
                 <div class="project-desc"></div>   
             </a>
-        </div>
+        </div><!-- About Me Section -->
+<div class="about-me">
+    <div class="about-me-title">About Me</div>
+    <div class="about-me-content">
+        <p>Ich bin FullRisk, ein Hobby-Programmierer, der leidenschaftlich gerne neue Dinge lernt. Besonders interessiere ich mich für die Entwicklung von Minecraft-Mods und anderen kreativen Projekten. Ich glaube daran, dass man nie aufhören sollte zu lernen und immer nach neuen Wegen suchen sollte, seine Fähigkeiten zu verbessern.</p>
+    </div>
+</div>
+
         <!-- Footer -->
         <div class="footer">
             <p>&copy; 2025 FullRisk. Alle Rechte vorbehalten. | <a href="https://github.com/FullRisk">GitHub</a></p>
