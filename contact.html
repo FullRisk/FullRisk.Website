@@ -37,6 +37,23 @@
         .navbar a:hover { 
             color: #a855f7; 
         }
+                .stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 5px white;
+    animation: twinkle linear infinite;
+}
 
         /* Inhalt */
         .content { 
@@ -148,6 +165,42 @@
                 console.error('Fehler beim Kopieren:', err);
             });
         }
+          document.addEventListener("DOMContentLoaded", function () {
+        const starContainer = document.querySelector('.stars');
+        const numStars = 100; // Anzahl der Sterne
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            // Zufällige Position und Größe
+            const size = Math.random() * 3 + 1; // Zwischen 1px und 4px
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+
+            // Zufällige Animationsdauer und Verzögerung
+            const duration = Math.random() * 4 + 3; // 3s bis 7s
+            star.style.animationDuration = `${duration}s`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+
+            // Animation zufällig zuweisen
+            star.style.animationName = Math.random() > 0.5 ? 'twinkle' : 'fadeOutRespawn';
+
+            // Stern nach der Animation neu positionieren
+            star.addEventListener('animationiteration', () => {
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+            });
+
+            starContainer.appendChild(star);
+        }
+
+        for (let i = 0; i < numStars; i++) {
+            createStar();
+        }
+    });
     </script>
 </body>
 </html>
